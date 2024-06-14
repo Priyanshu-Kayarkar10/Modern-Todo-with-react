@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 
 function App() {
 
-  const storedTodo = JSON.parse(localStorage.getItem("todos")) || ["Go to Gym","Drink 4 Litres of water"];
+  const storedTodo = JSON.parse(localStorage.getItem("todos")) || ["Go to Gym"];
 
   const [todos, setTodos] = useState(storedTodo);
 
