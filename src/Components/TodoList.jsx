@@ -125,7 +125,7 @@ const TodoList = ({ completedTodos, todos, deleteTodo, editTodo, taskComplete, d
                     >
                       <div className="sm:tracking-wide py-1 whitespace-pre-wrap" >{completedTodo}</div>
 
-                      <span className="flex items-center justify-center gap-x-4 md:gap-x-6 mr-4 md:mr-2 " >
+                      <span className="flex items-center justify-center gap-x-4 pl-12 md:gap-x-6  mr-1 md:mr-2 " >
                         <MdDelete
                           onClick={() => {
                             deleteCompletedTodo(index)
