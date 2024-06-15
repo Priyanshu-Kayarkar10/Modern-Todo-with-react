@@ -10,7 +10,7 @@
 
 ♟ Delete Todo.
 
-♟ List the Task Completed and also Unlist them.
+♟ List the completed task , Unlist task and also delete task .
 
 
 -All the data will be stored in Local Storage of Browser.
