@@ -10,6 +10,9 @@
 
 ♟ Delete Todo.
 
+♟ List the Task Completed and also Unlist them.
+
+
 -All the data will be stored in Local Storage of Browser.
 
 -This website is fully responsive on all screen sizes and it is deployed on vercel.
