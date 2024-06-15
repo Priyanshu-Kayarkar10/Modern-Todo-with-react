@@ -67,6 +67,7 @@ function App() {
   }
 
   const transferToCompleteTodo = (index) => {
+    const targetTodo = storedCompletedTodos[index];
     addTodo(targetTodo);
     deleteCompletedTodo(index);
   }
