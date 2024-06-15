@@ -14,7 +14,7 @@ const TodoInput = ({ addTodo }) => {
         }}
         value={todoValue}
         onChange={(e) => setTodoValue(e.target.value)}
-        className="outline-none tracking-widest w-full bg-transparent border border-1 border-zinc-600 rounded-md px-3 p-2 md:p-[0.6rem] text-md md:text-xl text-white"
+        className="outline-none tracking-wide w-full bg-transparent border border-1 border-zinc-600 rounded-md px-3 p-2 md:p-[0.6rem] text-md md:text-xl text-white"
         type="text"
         placeholder="Enter todo..."
       />
@@ -23,7 +23,7 @@ const TodoInput = ({ addTodo }) => {
           addTodo(todoValue);
           setTodoValue("");
         }}
-        className="p-1 text-lg border border-1 border-zinc-600 hover:bg-zinc-800 hover:opacity-[.8] active:opacity-[0.4] px-6 rounded-md md:px-8 md:p-[0.4rem] md:text-xl lg:py-[0.54rem] lg:px-[2rem] text-md"
+        className="p-[0.4rem] text-lg border border-1 border-zinc-600 tracking-wide font-semibold sm:hover:bg-zinc-800 hover:opacity-[.8] active:opacity-[0.4] px-6 rounded-md md:px-8 md:p-[0.4rem] md:text-xl lg:py-[0.54rem] lg:px-[2rem] text-md"
         type="submit"
       >
         Add

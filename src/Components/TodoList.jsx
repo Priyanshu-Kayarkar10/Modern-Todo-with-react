@@ -30,14 +30,14 @@ const TodoList = ({ completedTodos, todos, deleteTodo, editTodo, taskComplete, d
           setIsEditTodoActive(false);
         }
       }}
-      className=" min-h-[84%] mt-2 sm:mt-4 pt-8 px-8 flex flex-col items-start  gap-y-8 text-md md:text-lg md:px-[10rem] xl:px-[20rem]"
+      className=" min-h-[84%]  px-8 flex flex-col items-start mt-4 gap-y-8 text-md md:text-lg md:px-[10rem] xl:px-[20rem]"
     >
       {todos.map((todo, index) => (
         <li
-          className="flex items-center p-3 rounded-sm border shadow-sm shadow-white/5 border-zinc-800 md:rounded-md overflow-hidden justify-between bg-neutral-900 w-full transition-transform transform scale-1 animate-scale-up"
+          className=" sm:hover:bg-neutral-800 flex items-center p-2 rounded-sm border shadow-sm shadow-zinc-200/5 border-zinc-800 md:rounded-md overflow-hidden justify-between bg-neutral-900 w-full transition-transform transform scale-1 animate-scale-up-fast"
           key={index}
         >
-          <div className="flex-1 mr-10  break-words">
+          <div className="flex-1 mr-6  break-words">
             {isEditTodoActive && currentElementId == index ? (
               <>
                 <input
@@ -53,14 +53,14 @@ const TodoList = ({ completedTodos, todos, deleteTodo, editTodo, taskComplete, d
                   }}
                   value={editedValue}
                   onChange={(e) => setEditedValue(e.target.value)}
-                  className="p-1 md:p-2 bg-transparent border border-1 md:w-[40rem] border-neutral-500 rounded-sm outline-none text-sm w-full"
+                  className="p-1 md:p-2  bg-transparent border border-1 md:w-[40rem] border-neutral-500 rounded-sm outline-none text-sm w-full"
                   type="text"
                 />
-                <span></span>
+                <span className="hidden" ></span>
               </>
 
             ) : (
-              <div className="whitespace-pre-wrap">{todo}</div>
+              <div className=" py-1 whitespace-pre-wrap">{todo}</div>
             )}
           </div>
           <div
@@ -68,7 +68,7 @@ const TodoList = ({ completedTodos, todos, deleteTodo, editTodo, taskComplete, d
             onClick={(e) => {
               setCurrentElementId(e.currentTarget.id);
             }}
-            className="flex gap-6 items-center justify-center select-none"
+            className="flex  gap-4 items-center justify-center select-none"
           >
             <BiSolidEdit
               onClick={() => {
@@ -76,15 +76,15 @@ const TodoList = ({ completedTodos, todos, deleteTodo, editTodo, taskComplete, d
                 setIsEditTodoActive(true);
                 setCurrentElementId(index);
               }}
-              className="cursor-pointer hover:opacity-[0.65] active:opacity-[0.2] w-6 h-6 md:w-7 md:h-7"
+              className="cursor-pointer sm:hover:opacity-[0.65] active:opacity-[0.2] w-5 h-5 md:w-7 md:h-7"
             />
             <MdDelete
               onClick={() => deleteTodo(index)}
-              className="cursor-pointer hover:text-red-600 active:opacity-[0.15] w-6 h-6 md:w-7 md:h-7"
+              className="cursor-pointer sm:hover:text-red-600 active:opacity-[0.15] w-5 h-5 md:w-7 md:h-7"
             />
             <MdOutlineTaskAlt
               onClick={() => { taskComplete(index) }}
-              className="cursor-pointer sm:hover:text-green-600 active:opacity-[0.2]  w-6 h-6 md:w-7 md:h-7"
+              className="cursor-pointer sm:hover:text-green-600 active:opacity-[0.2]  w-5 h-5 md:w-7 md:h-7"
             />
           </div>
         </li>
@@ -98,15 +98,15 @@ const TodoList = ({ completedTodos, todos, deleteTodo, editTodo, taskComplete, d
           onClick={() => {
             setIsCompletedTodoActive(!isCompletedTodoActive)
           }}
-          className="font-bold tracking-wider p-2 border rounded border-zinc-800 flex items-center justify-center gap-x-4 shadow-sm shadow-white/5 hover:opacity-[0.5] " >Completed Todos
+          className="font-bold tracking-wider p-2 border rounded border-zinc-800 flex items-center active:opacity-[0.5] justify-center gap-x-4 shadow-sm shadow-white/5 hover:opacity-[0.5] " >Completed Todos
           {
             isCompletedTodoActive ? (
               <span><FaArrowAltCircleDown
-                className="cursor-pointer   w-6 h-6 md:w-7 md:h-7"
+                className="cursor-pointer active:opacity-[0.5] w-5 h-5 md:w-7 md:h-7"
               /></span>
             ) : (
               <span><FaArrowAltCircleRight
-                className="cursor-pointer   w-6 h-6 md:w-7 md:h-7"
+                className="cursor-pointer active:opacity-[0.5] w-5 h-5 md:w-7 md:h-7"
               /></span>
             )
           }
@@ -126,11 +126,11 @@ const TodoList = ({ completedTodos, todos, deleteTodo, editTodo, taskComplete, d
 
                       <span className="flex items-center justify-center gap-x-5 " >
                         <MdDelete
-                          onClick={()=> {
+                          onClick={() => {
                             deleteCompletedTodo(index)
                           }}
                           className="cursor-pointer
-                          hover:text-red-600 active:opacity-[0.2]  w-6 h-6 md:w-7 md:h-7"
+                          sm:hover:text-red-600 active:opacity-[0.2]  w-6 h-6 md:w-7 md:h-7"
                         />
 
                         <MdOutlineTaskAlt
