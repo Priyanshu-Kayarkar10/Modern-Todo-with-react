@@ -66,6 +66,11 @@ function App() {
 
   }
 
+  const transferToCompleteTodo = (index) => {
+    addTodo(targetTodo);
+    deleteCompletedTodo(index);
+  }
+
   return (
     <main className="bg-n1 text-white w-full h-screen font-poppins flex-col pb-10 overflow-y-scroll ">
       <div className="flex items-center justify-center h-[15%] ">
@@ -83,13 +88,15 @@ function App() {
         editTodo={editTodo}
         deleteTodo={deleteTodo}
         todos={todos}
-        taskComplete={taskComplete} />
+        taskComplete={taskComplete}
+        transferToCompleteTodo={transferToCompleteTodo}
+      />
 
-        <div className=" fixed flex items-center pb-2 w-full bottom-0 h-[5%] justify-center  ">
-          <h1 className="font-semibold" >Build with 💖 by <span className="  font-extrabold bg-clip-text tracking-wider text-transparent bg-[linear-gradient(to_right,theme(colors.blue.300),theme(colors.purple.300),theme(colors.purple.300),theme(colors.pink.200),theme(colors.blue.100),theme(colors.purple.300),theme(colors.pink.200))] bg-[length:200%_auto] animate-gradient">
+      <div className=" fixed flex items-center pb-2 w-full bottom-0 h-[5%] justify-center  ">
+        <h1 className="font-semibold" >Build with 💖 by <span className="  font-extrabold bg-clip-text tracking-wider text-transparent bg-[linear-gradient(to_right,theme(colors.blue.300),theme(colors.purple.300),theme(colors.purple.300),theme(colors.pink.200),theme(colors.blue.100),theme(colors.purple.300),theme(colors.pink.200))] bg-[length:200%_auto] animate-gradient">
           PRIYANSHU
         </span></h1>
-        </div>
+      </div>
     </main>
   );
 }

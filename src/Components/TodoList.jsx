@@ -5,12 +5,13 @@ import { MdOutlineTaskAlt } from "react-icons/md";
 import { FaArrowAltCircleDown } from "react-icons/fa";
 import { FaArrowAltCircleRight } from "react-icons/fa";
 
-const TodoList = ({ completedTodos, todos, deleteTodo, editTodo, taskComplete, deleteCompletedTodo }) => {
+const TodoList = ({ completedTodos, todos, deleteTodo, editTodo, taskComplete, deleteCompletedTodo, transferToCompleteTodo }) => {
   const [isEditTodoActive, setIsEditTodoActive] = useState(false);
   const [isCompletedTodoActive, setIsCompletedTodoActive] = useState(false);
   const [editedValue, setEditedValue] = useState("");
   const [currentElementId, setCurrentElementId] = useState(null);
   const inputRef = useRef(null);
+
 
   useEffect(() => {
     if (isEditTodoActive && currentElementId !== null) {
@@ -60,7 +61,7 @@ const TodoList = ({ completedTodos, todos, deleteTodo, editTodo, taskComplete, d
               </>
 
             ) : (
-              <div className=" py-1 whitespace-pre-wrap">{todo}</div>
+              <div className=" sm:tracking-wide py-1 whitespace-pre-wrap">{todo}</div>
             )}
           </div>
           <div
@@ -68,7 +69,7 @@ const TodoList = ({ completedTodos, todos, deleteTodo, editTodo, taskComplete, d
             onClick={(e) => {
               setCurrentElementId(e.currentTarget.id);
             }}
-            className="flex  gap-4 items-center justify-center select-none"
+            className="flex sm:mr-1 md:mr-2 md:gap-6 gap-4 items-center justify-center select-none"
           >
             <BiSolidEdit
               onClick={() => {
@@ -76,15 +77,15 @@ const TodoList = ({ completedTodos, todos, deleteTodo, editTodo, taskComplete, d
                 setIsEditTodoActive(true);
                 setCurrentElementId(index);
               }}
-              className="cursor-pointer sm:hover:opacity-[0.65] active:opacity-[0.2] w-5 h-5 md:w-7 md:h-7"
+              className="cursor-pointer sm:hover:opacity-[0.65] active:opacity-[0.2] w-5 h-5 sm:w-6 sm:h-6"
             />
             <MdDelete
               onClick={() => deleteTodo(index)}
-              className="cursor-pointer sm:hover:text-red-600 active:opacity-[0.15] w-5 h-5 md:w-7 md:h-7"
+              className="cursor-pointer sm:hover:text-red-600 active:opacity-[0.15] w-5 h-5 sm:w-6 sm:h-6"
             />
             <MdOutlineTaskAlt
               onClick={() => { taskComplete(index) }}
-              className="cursor-pointer sm:hover:text-green-600 active:opacity-[0.2]  w-5 h-5 md:w-7 md:h-7"
+              className="cursor-pointer sm:hover:text-green-600 active:opacity-[0.2]  w-5 h-5 sm:w-6 sm:h-6"
             />
           </div>
         </li>
@@ -106,7 +107,7 @@ const TodoList = ({ completedTodos, todos, deleteTodo, editTodo, taskComplete, d
               /></span>
             ) : (
               <span><FaArrowAltCircleRight
-                className="cursor-pointer active:opacity-[0.5] w-5 h-5 md:w-7 md:h-7"
+                className="cursor-pointer active:opacity-[0.5] w-5 h-5 md:w-6 md:h-6"
               /></span>
             )
           }
@@ -119,23 +120,24 @@ const TodoList = ({ completedTodos, todos, deleteTodo, editTodo, taskComplete, d
                 {
                   isCompletedTodoActive && (
                     <li
-                      className="flex items-center pr-4 p-1 rounded-sm border shadow-sm shadow-white/5 border-zinc-800 md:rounded-md overflow-hidden justify-between bg-neutral-900 w-full transition-transform transform scale-1 animate-scale-up-fast"
+                      className=" sm:tracking-wide sm:hover:bg-neutral-800 flex items-center p-2 rounded-sm border shadow-sm shadow-zinc-200/5 border-zinc-800 md:rounded-md overflow-hidden justify-between bg-neutral-900 w-full transition-transform transform scale-1 animate-scale-up-fast"
                       key={index}
                     >
-                      <div className="p-2  " >{completedTodo}</div>
+                      <div className="p-1  " >{completedTodo}</div>
 
-                      <span className="flex items-center justify-center gap-x-5 " >
+                      <span className="flex items-center justify-center gap-x-4 md:gap-x-6 sm:mr-1 md:mr-2 " >
                         <MdDelete
                           onClick={() => {
                             deleteCompletedTodo(index)
                           }}
                           className="cursor-pointer
-                          sm:hover:text-red-600 active:opacity-[0.2]  w-6 h-6 md:w-7 md:h-7"
+                          sm:hover:text-red-600 active:opacity-[0.2]  w-5 h-5 sm:w-6 sm:h-6"
                         />
 
                         <MdOutlineTaskAlt
+                          onClick={() => { transferToCompleteTodo(index) }}
                           className="cursor-pointer
-                  text-green-600 sm:hover:text-white/80 active:opacity-[0.2]  w-6 h-6 md:w-7 md:h-7"
+                  text-green-600 sm:hover:text-white/80 active:opacity-[0.2]  w-5 h-5 sm:w-6 sm:h-6"
                         />
                       </span>
                     </li>
