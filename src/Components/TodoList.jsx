@@ -69,7 +69,7 @@ const TodoList = ({ completedTodos, todos, deleteTodo, editTodo, taskComplete, d
             onClick={(e) => {
               setCurrentElementId(e.currentTarget.id);
             }}
-            className="flex sm:mr-1 md:mr-2 md:gap-6 gap-4 items-center justify-center select-none"
+            className="flex sm:mr-1 md:mr-2 md:gap-x-6 gap-4 items-center justify-center select-none"
           >
             <BiSolidEdit
               onClick={() => {
@@ -123,9 +123,9 @@ const TodoList = ({ completedTodos, todos, deleteTodo, editTodo, taskComplete, d
                       className=" sm:tracking-wide sm:hover:bg-neutral-800 flex items-center p-2 rounded-sm border shadow-sm shadow-zinc-200/5 border-zinc-800 md:rounded-md overflow-hidden justify-between bg-neutral-900 w-full transition-transform transform scale-1 animate-scale-up-fast"
                       key={index}
                     >
-                      <div className="p-1  " >{completedTodo}</div>
+                      <div className="sm:tracking-wide py-1 whitespace-pre-wrap" >{completedTodo}</div>
 
-                      <span className="flex items-center justify-center gap-x-4 md:gap-x-6 sm:mr-1 md:mr-2 " >
+                      <span className="flex items-center justify-center gap-x-4 md:gap-x-6 mr-4 md:mr-2 " >
                         <MdDelete
                           onClick={() => {
                             deleteCompletedTodo(index)
